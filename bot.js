@@ -4,7 +4,7 @@ const ayarlar = require('./ayarlar.json');
 const fs = require('fs');
 const moment = require("moment");
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://dragon05:zKZA5R1RqGZrFHlW@cluster0.oo6yj.mongodb.net/RoleGuard?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://witcher05:dwardwar64@cluster0.vddnl.mongodb.net/witcher05?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 const Database = require("./models/role.js");
 
 
