@@ -2,7 +2,7 @@
   "name": "guardian-rguard",
   "version": "0.0.1",
   "description": "guardian RGuard Bot",
-  "main": "guardian.js",
+  "main": "bot.js",
   "scripts": {
     "test": "node bot.js"
   },
