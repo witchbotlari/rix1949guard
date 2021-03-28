@@ -4,7 +4,7 @@ const ayarlar = require('./ayarlar.json');
 const fs = require('fs');
 const moment = require("moment");
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://witcher05:dwardwar64@cluster0.vddnl.mongodb.net/witcher05?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://rixguard:dwardwar64@cluster0.0u19v.mongodb.net/rixguard?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 const Database = require("./models/role.js");
 
 
@@ -27,7 +27,7 @@ let aylar = aylartoplam;
 
 
 client.on("ready", async () => {
-    client.user.setPresence({ activity: { name: "DmForBan Was Here!",}, status: "online"});
+    client.user.setPresence({ activity: { name: "Cruster Rix?#1949 Was Here XDXD",}, status: "online"});
   let botVoiceChannel = client.channels.cache.get(ayarlar.botVoiceChannelID);
   if (botVoiceChannel) botVoiceChannel.join().catch(err => console.error("Bot ses kanalına bağlanamadı!"));
   setInterval(() => {
@@ -36,6 +36,7 @@ client.on("ready", async () => {
 });
 
 client.on("message", async message => {
+ const emojis = message.guild.emojis.cache.find(emoji => emoji.name === 'rixonay');
   if (message.author.bot || !message.guild || !message.content.toLowerCase().startsWith(ayarlar.botPrefix)) return;
   if (message.author.id !== ayarlar.botOwner && message.author.id !== message.guild.owner.id) return;
   let args = message.content.split(' ').slice(1);
@@ -92,7 +93,7 @@ client.on("message", async message => {
 
   if (command === "yedekle" || command === "05stg05mamy") {
     setRoleBackup();
-    message.channel.send(`Başarılı bir şekilde yedek alındı.`)
+    message.channel.send(`<a:rixemoji:825328096017514507>Başarılı bir şekilde yedek alındı.`)
   };
 
   if (command === "kur" || command === "kurulum" || command === "setup") {
@@ -100,7 +101,7 @@ client.on("message", async message => {
 
     Database.findOne({guildID: ayarlar.guildID, roleID: args[0]}, async (err, roleData) => {
       if (!roleData) return message.channel.send(embed.setDescription("Belirtilen rol ID'sine ait veri bulunamadı!"));
-      message.react("✅");
+      message.react(emojis);
       let yeniRol = await message.guild.roles.create({
         data: {
           name: roleData.name,
